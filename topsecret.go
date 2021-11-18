@@ -9,7 +9,7 @@ import (
 
 type Body struct {
   // json tag to serialize json body
-   Name string `json:"name"`
+   Name []string `json:"name"`
 }
 
 func main() {
@@ -25,7 +25,7 @@ func main() {
       }
       fmt.Println(body)
       context.JSON(http.StatusAccepted,&body)
-    
+
    })
    
    app.Run(":"+port)
