@@ -12,6 +12,7 @@ type Body []struct {
    name string "json:'name'"
    distance float32 "json:'distance'"
    message string "json:'message'" 
+   satellites []Body "json:'satellites'"
 }
 
 func main() {
