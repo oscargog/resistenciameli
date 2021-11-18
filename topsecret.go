@@ -28,7 +28,8 @@ func main() {
          return
       }
       //fmt.Println(body)
-      //context.JSON(http.StatusAccepted,&body)
+      message := []byte(`{"position": { "x": -100.0,"y": 75.5 },"message": "este es un mensaje secreto" }`)
+      context.JSON(http.StatusAccepted,&message)
 
    })
    
