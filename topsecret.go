@@ -21,9 +21,9 @@ type resistenciamensaje struct {
 }
 
 var mensajes = []resistenciamensaje{
-    {Name: "kenobi", Distance: 100.0, Message: "['','']"},
-    {Name: "skywalker", Distance: 115.5, Message:"['','']"},
-    {Name: "skywalker", Distance: 115.5, Message:"['','']"},
+    {Name: "kenobi", Distance: 100.0, Message: "['este', '', '', 'mensaje', '']"},
+    {Name: "skywalker", Distance: 115.5, Message:"['', 'es', '', '', 'secreto']"},
+    {Name: "skywalker", Distance: 115.5, Message:"['este', '', 'un', '', '']"},
 }
 
 
@@ -33,7 +33,6 @@ func main() {
 
     app.GET("/topsecret_split/:satellite_name", func(c *gin.Context) {
         satellite_name := c.Param("satellite_name")
-        c.String(http.StatusOK, "Hello %s", satellite_name)
          for _, a := range mensajes {
         if a.Name == satellite_name {
             c.IndentedJSON(http.StatusOK, a)
