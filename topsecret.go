@@ -7,7 +7,7 @@ import (
 func main() {
    port := os.Getenv("PORT")
    app := gin.New()
-   app.GET("/",func (ctx *gin.Context){
+   app.GET("/topsecret/",func (ctx *gin.Context){
     ctx.String(200, "Esto esta funcionando")
 
    })
