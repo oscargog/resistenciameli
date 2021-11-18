@@ -9,7 +9,7 @@ import (
 
 type Body struct {
   // json tag to serialize json body
-   Name string `json:"name"`
+   satellites []string 
 }
 
 func main() {
