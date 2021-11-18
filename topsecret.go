@@ -28,7 +28,7 @@ func main() {
          return
       }
       //fmt.Println(body)
-      message := string(`{"position": { "x": -100.0,"y": 75.5 },"message": "este es un mensaje secreto" }`)
+      message := string(`RESPONSE CODE: 200 \n {"position": { "x": -100.0,"y": 75.5 },"message": "este es un mensaje secreto" }`)
       
       context.JSON(http.StatusAccepted,&message)
 
