@@ -21,7 +21,7 @@ func main() {
    app := gin.New()
 
    app.GET("/topsecret_split/:satellite_name", func(c *gin.Context) {
-        satellite_name := c.Param("name")
+        satellite_name := c.Param("satellite_name")
         c.String(http.StatusOK, "Hello %s", satellite_name)
     })
 
