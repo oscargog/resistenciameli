@@ -4,36 +4,30 @@ import (
     "os"
     "github.com/gin-gonic/gin"
     "net/http"
-
+    "fmt"
 )
 
-
-func postSatellites(c *gin.Context) {
-    var resistencia =""
-
-    if err := c.BindJSON(&resistencia); err != nil {
-        return
-    }
-
-    c.IndentedJSON(http.StatusCreated, resistencia)
+type Body struct {
+  // json tag to serialize json body
+   Name string `json:"name"`
 }
-
 
 func main() {
    port := os.Getenv("PORT")
    app := gin.New()
-   app.POST("/topsecret/",postSatellites)
-   app.GET("/topsecret/",func (ctx *gin.Context){
-    message := ctx.PostForm("este es un mensaje de la resistencia")
-    satelite := ctx.DefaultPostForm("Kenoby","Obi Wan")
-    ctx.JSON(200,gin.H{
-        "status": "posted",
-        "message" : message,
-        "satelite": satelite,
-    })
 
+   app.POST("/topsecret/",func(context *gin.Context){
+
+    body:=Body{}
+    if err:=context.BindJSON(&body);err!=nil{
+         context.AbortWithError(http.StatusBadRequest,err)
+         return
+      }
+      fmt.Println(body)
+      context.JSON(http.StatusAccepted,&body)
+    
    })
-
+   
    app.Run(":"+port)
 
 }
