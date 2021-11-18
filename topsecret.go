@@ -27,22 +27,20 @@ var mensajes = []resistenciamensaje{
 }
 
 
-func getAlbumByID(c *gin.Context) {
-    namesatellite := c.Param("namesatellite")
-    for _, a := range mensajes {
-        if a.Name == namesatellite {
+func main() {
+   port := os.Getenv("PORT")
+   app := gin.New()
+
+    app.GET("/topsecret_split/:satellite_name", func(c *gin.Context) {
+        satellite_name := c.Param("satellite_name")
+         for _, a := range mensajes {
+        if a.Name == satellite_name {
             c.IndentedJSON(http.StatusOK, a)
             return
         }
     }
     c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Tus ojos pueden engañarte, no confíes en ellos - Obi-Wan \n"})
-}
-
-func main() {
-   port := os.Getenv("PORT")
-   app := gin.New()
-
-    app.GET("/topsecret_split/:satellite_name", getAlbumByID)
+    })
 
    app.POST("/topsecret/",func(context *gin.Context){
     body:=satellites{}
