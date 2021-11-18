@@ -4,7 +4,7 @@ import (
     "os"
     "github.com/gin-gonic/gin"
     "net/http"
-    "fmt"
+    
 )
 
     
@@ -27,7 +27,7 @@ func main() {
          context.AbortWithError(http.StatusBadRequest,err)
          return
       }
-      fmt.Println(body)
+      //fmt.Println(body)
       context.JSON(http.StatusAccepted,&body)
 
    })
