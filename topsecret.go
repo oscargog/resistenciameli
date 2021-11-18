@@ -7,9 +7,11 @@ import (
     "fmt"
 )
 
-type Body struct {
+type Body []struct {
   // json tag to serialize json body
-   satellites []string 
+   name string "json:'name'"
+   distance float32 "json:'distance'"
+   message string "json:'message'" 
 }
 
 func main() {
