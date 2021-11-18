@@ -9,11 +9,11 @@ import (
 
     
 type Body struct {
-    Children []struct {
-        ID    int    `json:"id"`
-        Title string `json:"title"`
-        Type  string `json:"type"`
-    } `json:"children"`
+    Satellites []struct {
+        Name     string   `json:"name"`
+        Distance float64  `json:"distance"`
+        Message  []string `json:"message"`
+    } `json:"satellites"`
 }
 
 func main() {
